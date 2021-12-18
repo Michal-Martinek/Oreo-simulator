@@ -4,7 +4,7 @@ display = pygame.display.set_mode((700, 700))
 pygame.display.set_caption('Oreo simulator')
 scoreFont = pygame.font.SysFont('arial', 30)
 upgradeFont = pygame.font.SysFont('arial', 7)
-upgradeIcon = pygame.image.load('upgrade-icon.png')
+upgradeIcon = pygame.image.load('Assets\\Images\\upgrade-icon.png')
 upgradeIcon = pygame.transform.scale(upgradeIcon, (50, 50)).convert()
 upgradeIcon.set_colorkey((255, 255, 255))
 
