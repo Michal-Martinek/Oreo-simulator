@@ -4,15 +4,20 @@ display = pygame.display.set_mode((700, 700))
 pygame.display.set_caption('Oreo simulator')
 scoreFont = pygame.font.SysFont('arial', 30)
 upgradeFont = pygame.font.SysFont('arial', 7)
+cookieImg = pygame.image.load('Assets\\Images\\Cookie.png')
+cookieImg = pygame.transform.scale(cookieImg, (500, 500)).convert()
+cookieImg.set_colorkey((255, 255, 255))
+
 upgradeIcon = pygame.image.load('Assets\\Images\\upgrade-icon.png')
 upgradeIcon = pygame.transform.scale(upgradeIcon, (50, 50)).convert()
 upgradeIcon.set_colorkey((255, 255, 255))
 
 
 def drawOreo():
-    # 62 42 26
-    pygame.draw.circle(display, (6 * 16 + 2, 4 * 16 + 2, 2 * 16 + 6), (350, 350), 200)
-    pygame.draw.circle(display, (0, 0, 0), (350, 350), 200, 3)
+    display.blit(cookieImg, (100, 100))
+    # hitbox
+    # pygame.draw.circle(display, (255, 0, 0), (350, 350), 260, 3)
+    
     display.blit(upgradeIcon, (600, 600))
 
 def drawScore(score, nextClickUpgradeCost):
@@ -43,7 +48,7 @@ def main():
                 if event.button == 1:
                     pos = pygame.mouse.get_pos()
                     distanceSquared = (pos[0] - 350) ** 2 + (pos[1] - 350) ** 2
-                    if distanceSquared <= (200 ** 2):
+                    if distanceSquared <= (260 ** 2):
                         score += moneyPerClick
 
                     upgradeRect = pygame.Rect(600, 600, 50, 50)
